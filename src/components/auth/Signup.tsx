@@ -4,10 +4,12 @@ import Auth from "./Auth";
 import { useCreateUser } from "../../hooks/useCreateUser";
 import { useState } from "react";
 import { extractErrorMessage } from "../../utils/errors";
+import { useLogin } from "../../hooks/useLogin";
 
 const Signup = () => {
   const [createUser] = useCreateUser();
   const [error, setError] = useState("");
+  const { login } = useLogin();
 
   return (
     <Auth
@@ -23,6 +25,7 @@ const Signup = () => {
               },
             },
           });
+          await login({ email, password });
           setError("");
         } catch (err) {
           const errorMessage = extractErrorMessage(err);
