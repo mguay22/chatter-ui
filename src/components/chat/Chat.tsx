@@ -47,10 +47,10 @@ const Chat = () => {
       <Box sx={{ maxHeight: "70vh", overflow: "auto" }}>
         {messages?.messages.map((message) => (
           <Grid container alignItems="center" marginBottom="1rem">
-            <Grid item xs={3} md={1}>
+            <Grid item xs={2} lg={1}>
               <Avatar src="" sx={{ width: 52, height: 52 }} />
             </Grid>
-            <Grid item xs={9} md={11}>
+            <Grid item xs={10} lg={11}>
               <Stack>
                 <Paper sx={{ width: "fit-content" }}>
                   <Typography sx={{ padding: "0.9rem" }}>
@@ -73,6 +73,7 @@ const Chat = () => {
           justifySelf: "flex-end",
           alignItems: "center",
           width: "100%",
+          margin: "1rem 0",
         }}
       >
         <InputBase
