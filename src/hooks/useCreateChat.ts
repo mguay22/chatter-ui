@@ -19,6 +19,7 @@ const useCreateChat = () => {
             const newChatRef = cache.writeFragment({
               data: data?.createChat,
               fragment: ChatFragment,
+              fragmentName: "ChatFragment",
             });
             return [...existingChats, newChatRef];
           },
