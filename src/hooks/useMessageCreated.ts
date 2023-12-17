@@ -5,8 +5,8 @@ import { updateMessages } from "../cache/messages";
 import { updateLatestMessage } from "../cache/latest-message";
 
 const messageCreatedDocument = graphql(`
-  subscription messageCreated($chatId: String!) {
-    messageCreated(chatId: $chatId) {
+  subscription messageCreated($chatIds: [String!]!) {
+    messageCreated(chatIds: $chatIds) {
       ...MessageFragment
     }
   }
