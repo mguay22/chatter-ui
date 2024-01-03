@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import { Snackbar as MUISnackbar } from "@mui/material";
+import { Snackbar as MUISnackbar, Typography } from "@mui/material";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { forwardRef } from "react";
 import { useReactiveVar } from "@apollo/client";
@@ -40,7 +40,7 @@ const Snackbar = () => {
               severity={snack.type}
               sx={{ width: "100%" }}
             >
-              {snack.message}
+              <Typography>{snack.message}</Typography>
             </Alert>
           </MUISnackbar>
         </Stack>
