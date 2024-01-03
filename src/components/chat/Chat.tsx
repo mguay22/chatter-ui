@@ -82,7 +82,10 @@ const Chat = () => {
               .map((message) => (
                 <Grid container alignItems="center" marginBottom="1rem">
                   <Grid item xs={2} lg={1}>
-                    <Avatar src="" sx={{ width: 52, height: 52 }} />
+                    <Avatar
+                      src={message.user.imageUrl}
+                      sx={{ width: 52, height: 52 }}
+                    />
                   </Grid>
                   <Grid item xs={10} lg={11}>
                     <Stack>
