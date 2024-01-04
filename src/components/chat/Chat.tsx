@@ -84,7 +84,9 @@ const Chat = () => {
                   <Grid item xs={3} lg={2}>
                     <Stack alignItems="center">
                       <Avatar
-                        src={message.user.imageUrl}
+                        src={`${
+                          message.user.imageUrl
+                        }?ts=${new Date().getTime()}`}
                         sx={{ width: 52, height: 52 }}
                       />
                       <Typography variant="caption" marginTop="0.25rem">
