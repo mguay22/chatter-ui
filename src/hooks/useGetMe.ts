@@ -6,6 +6,7 @@ const getMeDocument = graphql(`
     me {
       _id
       email
+      username
     }
   }
 `);
