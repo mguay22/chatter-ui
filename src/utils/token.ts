@@ -1,4 +1,4 @@
-export const setToken = (token: string) => {};
+export const setToken = (_token: string) => {};
 
 export const getToken = () => {
   return "";

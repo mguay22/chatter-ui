@@ -9,10 +9,10 @@ import { createClient } from "graphql-ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { getToken } from "../utils/token";
 
-const logoutLink = onError((error) => {
+const logoutLink = onError(({ error }) => {
   if (
-    error.graphQLErrors?.length &&
-    (error.graphQLErrors[0].extensions?.originalError as any)?.statusCode ===
+    (error as any)?.errors?.length &&
+    ((error as any).errors[0].extensions?.originalError as any)?.statusCode ===
       401
   ) {
     if (!excludedRoutes.includes(window.location.pathname)) {

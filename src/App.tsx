@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { RouterProvider } from "react-router-dom";
 import router from "./components/Routes";
-import { ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
 import client from "./constants/apollo-client";
 import Guard from "./components/auth/Guard";
 import Header from "./components/header/Header";
@@ -35,10 +35,10 @@ const App = () => {
           <Container maxWidth="xl" sx={{ marginTop: "1rem" }}>
             {showChatList ? (
               <Grid container spacing={5}>
-                <Grid item xs={12} md={5} lg={4} xl={3}>
+                <Grid size={{ xs: 12, md: 5, lg: 4, xl: 3 }}>
                   <ChatList />
                 </Grid>
-                <Grid xs={12} item md={7} lg={8} xl={9}>
+                <Grid size={{ xs: 12, md: 7, lg: 8, xl: 9 }}>
                   <Routes />
                 </Grid>
               </Grid>

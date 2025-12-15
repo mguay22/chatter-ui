@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import { Snackbar as MUISnackbar } from "@mui/material";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { forwardRef } from "react";
-import { useReactiveVar } from "@apollo/client";
+import { useReactiveVar } from "@apollo/client/react";
 import { snackVar } from "../../constants/snack";
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(

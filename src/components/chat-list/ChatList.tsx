@@ -24,7 +24,7 @@ const ChatList = () => {
     countChats();
   }, [countChats]);
 
-  useMessageCreated({ chatIds: data?.chats.map((chat) => chat._id) || [] });
+  useMessageCreated({ chatIds: data?.chats.map((chat: any) => chat._id) || [] });
 
   useEffect(() => {
     const pathSplit = path.split("chats/");
@@ -50,6 +50,7 @@ const ChatList = () => {
             overflow: "auto",
           }}
         >
+          {/* @ts-expect-error React 19 type compatibility */}
           <InfiniteScroll
             pageStart={0}
             loadMore={() =>

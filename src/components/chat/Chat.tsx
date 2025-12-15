@@ -59,6 +59,7 @@ const Chat = () => {
     <Stack sx={{ height: "100%", justifyContent: "space-between" }}>
       <h1>{data?.chat.name}</h1>
       <Box sx={{ height: "75vh", overflow: "auto" }}>
+        {/* @ts-expect-error React 19 type compatibility */}
         <InfiniteScroll
           pageStart={0}
           isReverse={true}
@@ -81,7 +82,7 @@ const Chat = () => {
               )
               .map((message) => (
                 <Grid container alignItems="center" marginBottom="1rem">
-                  <Grid item xs={2} lg={1}>
+                  <Grid size={{ xs: 2, lg: 1 }}>
                     <Stack
                       spacing={1}
                       alignItems="center"
@@ -96,7 +97,7 @@ const Chat = () => {
                       </Typography>
                     </Stack>
                   </Grid>
-                  <Grid item xs={10} lg={11}>
+                  <Grid size={{ xs: 10, lg: 11 }}>
                     <Stack>
                       <Paper sx={{ width: "fit-content" }}>
                         <Typography sx={{ padding: "0.9rem" }}>

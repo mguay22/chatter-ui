@@ -1,4 +1,4 @@
-import { useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 import { graphql } from "../gql";
 import { QueryChatsArgs } from "../gql/graphql";
 

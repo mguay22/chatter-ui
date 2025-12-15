@@ -1,4 +1,5 @@
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client/react";
+import { ApolloCache } from "@apollo/client";
 import { graphql } from "../gql";
 import { ChatFragment } from "../fragments/chat.fragment";
 
@@ -12,7 +13,7 @@ const createChatDocument = graphql(`
 
 const useCreateChat = () => {
   return useMutation(createChatDocument, {
-    update(cache, { data }) {
+    update(cache: ApolloCache, { data }: any) {
       cache.modify({
         fields: {
           chats(existingChats = []) {

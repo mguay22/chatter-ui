@@ -1,4 +1,4 @@
-import { useSubscription } from "@apollo/client";
+import { useSubscription } from "@apollo/client/react";
 import { graphql } from "../gql";
 import { SubscriptionMessageCreatedArgs } from "../gql/graphql";
 import { updateMessages } from "../cache/messages";
@@ -17,7 +17,7 @@ export const useMessageCreated = (
 ) => {
   return useSubscription(messageCreatedDocument, {
     variables,
-    onData: ({ client, data }) => {
+    onData: ({ client, data }: any) => {
       if (data.data) {
         updateMessages(client.cache, data.data.messageCreated);
         updateLatestMessage(client.cache, data.data.messageCreated);

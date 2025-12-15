@@ -11,8 +11,22 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * 3. It does not support dead code elimination, so it will add unused operations.
  *
  * Therefore it is highly recommended to use the babel or swc plugin for production.
+ * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
-const documents = {
+type Documents = {
+    "\n  fragment ChatFragment on Chat {\n    _id\n    name\n    latestMessage {\n      ...MessageFragment\n    }\n  }\n": typeof types.ChatFragmentFragmentDoc,
+    "\n  fragment MessageFragment on Message {\n    _id\n    content\n    createdAt\n    chatId\n    user {\n      ...UserFragment\n    }\n  }\n": typeof types.MessageFragmentFragmentDoc,
+    "\n  fragment UserFragment on User {\n    _id\n    email\n    username\n    imageUrl\n  }\n": typeof types.UserFragmentFragmentDoc,
+    "\n  mutation CreateChat($createChatInput: CreateChatInput!) {\n    createChat(createChatInput: $createChatInput) {\n      ...ChatFragment\n    }\n  }\n": typeof types.CreateChatDocument,
+    "\n  mutation CreateMessage($createMessageInput: CreateMessageInput!) {\n    createMessage(createMessageInput: $createMessageInput) {\n      ...MessageFragment\n    }\n  }\n": typeof types.CreateMessageDocument,
+    "\n  mutation CreateUser($createUserInput: CreateUserInput!) {\n    createUser(createUserInput: $createUserInput) {\n      _id\n      email\n    }\n  }\n": typeof types.CreateUserDocument,
+    "\n  query Chat($_id: String!) {\n    chat(_id: $_id) {\n      ...ChatFragment\n    }\n  }\n": typeof types.ChatDocument,
+    "\n  query Chats($skip: Int!, $limit: Int!) {\n    chats(skip: $skip, limit: $limit) {\n      ...ChatFragment\n    }\n  }\n": typeof types.ChatsDocument,
+    "\n  query Me {\n    me {\n      ...UserFragment\n    }\n  }\n": typeof types.MeDocument,
+    "\n  query Messages($chatId: String!, $skip: Int!, $limit: Int!) {\n    messages(chatId: $chatId, skip: $skip, limit: $limit) {\n      ...MessageFragment\n    }\n  }\n": typeof types.MessagesDocument,
+    "\n  subscription messageCreated($chatIds: [String!]!) {\n    messageCreated(chatIds: $chatIds) {\n      ...MessageFragment\n    }\n  }\n": typeof types.MessageCreatedDocument,
+};
+const documents: Documents = {
     "\n  fragment ChatFragment on Chat {\n    _id\n    name\n    latestMessage {\n      ...MessageFragment\n    }\n  }\n": types.ChatFragmentFragmentDoc,
     "\n  fragment MessageFragment on Message {\n    _id\n    content\n    createdAt\n    chatId\n    user {\n      ...UserFragment\n    }\n  }\n": types.MessageFragmentFragmentDoc,
     "\n  fragment UserFragment on User {\n    _id\n    email\n    username\n    imageUrl\n  }\n": types.UserFragmentFragmentDoc,

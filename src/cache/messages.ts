@@ -3,7 +3,7 @@ import { Message } from "../gql/graphql";
 import { getMessagesDocument } from "../hooks/useGetMessages";
 import { PAGE_SIZE } from "../constants/page-size";
 
-export const updateMessages = (cache: ApolloCache<any>, message: Message) => {
+export const updateMessages = (cache: ApolloCache, message: Message) => {
   const messagesQueryOptions = {
     query: getMessagesDocument,
     variables: {

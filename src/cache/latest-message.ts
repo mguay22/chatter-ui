@@ -3,7 +3,7 @@ import { Message } from "../gql/graphql";
 import { getChatsDocument } from "../hooks/useGetChats";
 
 export const updateLatestMessage = (
-  cache: ApolloCache<any>,
+  cache: ApolloCache,
   message: Message
 ) => {
   const chats = [
